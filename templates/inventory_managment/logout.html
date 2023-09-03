@@ -1,0 +1,9 @@
+{% extends "../layout.html" %}
+{% load static %}
+{% block content %}
+<div class="content-section">
+    <small class="text-muted">
+        Wylogowano pomyślne. <a href="{% url 'login' %}">Zaloguj się ponownie.</a>
+    </small>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "../layout.html" %}
+{% block content %}
+<div class="content-section">
+
+    <div class="button-edit">
+        <a class="btn btn-success btn-sm" href="{% url 'add_inventory' %}">Dodaj przedmiot</a>
+    </div>
+    
+    <table class="table table-striped table-bordered table-hovet">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nazwa</th>
+                <th scope="col">Ilość na magazynie</th>
+                <th scope="col">Sprzedana ilość</th>
+                <th scope="col">Cena</th>
+                <th scope="col">Data dodania</th>
+                <th scope="col">Ostatnia sprzedaż</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for inventory in inventories %}
+            <tr style="cursor: pointer; cursor: hand;" onclick="window.location = `{% url 'per_product' inventory.id %}`">
+                <th scope="row">{{ forloop.counter }}</th>
+                <th scope="row">{{ inventory.name }}</th>
+                <th scope="row">{{ inventory.quantity }} szt.</th>
+                <th scope="row">{{ inventory.quantity_sold }} szt.</th>
+                <th scope="row">{{ inventory.price }} zł</th>
+                <th scope="row">{{ inventory.stock_date }}</th>
+                <th scope="row">{{ inventory.last_sales_date }}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</div>
+{% endblock %}

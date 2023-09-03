@@ -1,0 +1,77 @@
+{% extends "../layout.html" %}
+{% block content %}
+<div class="content-section">
+    
+    <a href="{% url 'inventory_list' %}" class="btn btn-outline-dark btn-sm" role="button">Wróć</a>
+    
+    <div class="row mx-auto justify-content-center">
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="cart-title text-center">Nazwa</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fab fa-product-hunt"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventory.name }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="cart-title text-center">Ilość</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fas fa-warehouse"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventory.quantity }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="cart-title text-center">Sprzedana ilość</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fas fa-warehouse"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventory.quantity_sold }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="cart-title text-center">Cena za {{ inventory.name }}</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fas fa-tag"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventory.price }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="cart-title text-center">Data dodania</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fas fa-calendar-alt"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventory.stock_date }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="cart-title text-center">Ostania sprzedaż</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fas fa-calendar-alt"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventory.last_sales_date }}</h3>
+            </div>
+        </div>
+        <div class="button-edit">
+            <a class="btn btn-outline-success btn-sm" href="{% url 'update_inventory' inventory.id %}">Zaktualizuj przedmiot</a>
+            <a class="btn btn-danger btn-sm" href="{% url 'delete_inventory' inventory.id %}">Usuń przedmiot</a>
+
+        </div>
+        
+
+    </div>
+</div>
+{% endblock %}
